@@ -1,8 +1,12 @@
 <script lang="ts">
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import CategoryPills from '$lib/components/CategoryPills.svelte';
+	import SearchInput from '$lib/components/SearchInput.svelte';
 
-	let { children } = $props();
+	let { children,data } = $props();
+  
+  
 </script>
 
 <svelte:head>
@@ -16,8 +20,13 @@
     <div class="flex items-center gap-3">
       <h1 class="text-2xl md:text-3xl font-bold">Hunjan Hospital Blogs</h1>
     </div>
-
-   
+    <div>
+      <SearchInput />
+    </div>
+    <div>
+      <CategoryPills {data}  />
+    </div>
+    
   </div>
 </header>
 

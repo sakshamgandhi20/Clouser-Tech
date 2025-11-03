@@ -2,7 +2,7 @@
 	import Pagination from '$lib/components/Pagination.svelte';
     import Skeletons from '$lib/components/Skeletons.svelte';
 	export let data;
-	$: ({ posts, totalPages, page, error } = data);
+	$: ({ posts, error } = data);
 
 	// Retry function for network errors
 	function retryFetch() {
@@ -70,11 +70,6 @@
 				<a href={`/blog/${post.slug}`} class="mt-3 inline-block text-blue-600">Read More →</a>
 			</article>
 		{/each}
-	</div>
-
-	<!-- Pagination -->
-	<div class="mt-8">
-		<Pagination {page} {totalPages} />
 	</div>
 {/if}
 
