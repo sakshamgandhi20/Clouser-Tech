@@ -1,7 +1,6 @@
 <script lang="ts">
-  export let data;
-  console.log(data)
-  $: ({ post } = data);
+  export let postData;
+  $:  post  = postData;
 </script>
 
 {#if post}
