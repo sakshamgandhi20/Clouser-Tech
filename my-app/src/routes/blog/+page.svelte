@@ -2,6 +2,7 @@
 	import Pagination from '$lib/components/Pagination.svelte';
 	import PostList from '$lib/components/PostList.svelte';
   export let data;
+  console.log(data)
 </script>
 <PostList {data} />
 <Pagination page={data.page} totalPages={data.totalPages} />

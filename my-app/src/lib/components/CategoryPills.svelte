@@ -41,7 +41,7 @@ let isOpen = false;
     aria-expanded={isOpen}
   >
    
-    <span class="text-gray-500 text-xs">{isOpen ? 'Categories ▲' : 'Categories ▼'}</span>
+    <span class="text-gray-500 text-l">{isOpen ? 'Categories ▲' : 'Categories ▼'}</span>
   </button>
 
   <!-- Dropdown List -->

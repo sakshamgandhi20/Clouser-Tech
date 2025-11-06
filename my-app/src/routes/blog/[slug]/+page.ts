@@ -17,6 +17,7 @@ export const load: PageLoad = async ({ params,url }) => {
       url: url.href,
       image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || ''
     });
+
     return { post, metadata  };
   } catch (error) {
     console.error('Error fetching post:', error);

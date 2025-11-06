@@ -57,6 +57,22 @@ export async function fetchCategories(): Promise<WPCategory[] > {
   }
 }
 
+export async function fetchCategoryById(id: number) {
+  try {
+    const url = `${API_BASE}/posts?categories=${id}`;
+    const res = await fetch(url); 
+    if (!res.ok) {
+      throw new Error(`Failed to fetch posts: ${res.status}`);
+    }
+    const posts: WPPost[] = await res.json();
+    return  posts ;
+  }
+  catch (error) {
+    console.error('Error in fetchCategoryById:', error);
+    return null;
+  }
+}
+
 export async function fetchPostsBySearch(term = ""): Promise<{ posts: WPPost[] }> {
   try {
     const url = `${API_BASE}/posts?search=${term}`;
