@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
-  import { page } from '$app/stores'; // use correct store
+  import { page } from '$app/state'; 
 
   // variable to store user input
   let query = '';
@@ -11,7 +11,7 @@
 
   // when component loads, get "search" param from URL
   onMount(() => {
-    const searchParam = $page.url.searchParams.get('search');
+    const searchParam = page.url.searchParams.get('search');
     if (searchParam) query = searchParam;
   });
 
@@ -19,7 +19,7 @@
   function handleSearch(e: Event) {
     e.preventDefault();
 
-  const params = new URLSearchParams($page.url.searchParams as any);
+  const params = new URLSearchParams(page.url.searchParams as any);
 
     // if query has text, set it as ?search=keyword
     if (query.trim()) {
@@ -38,7 +38,7 @@
   // clear the search
   function clearSearch() {
     query = '';
-  const params = new URLSearchParams($page.url.searchParams as any);
+  const params = new URLSearchParams(page.url.searchParams as any);
     params.delete('search');
     params.delete('page');
     goto(`/blog?${params.toString()}`);
