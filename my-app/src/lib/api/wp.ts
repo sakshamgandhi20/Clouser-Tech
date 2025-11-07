@@ -73,7 +73,7 @@ export async function fetchCategoryById(id: number) {
   }
 }
 
-export async function fetchPostsBySearch(term = ""): Promise<{ posts: WPPost[] }> {
+export async function fetchPostsBySearch(term = "") {
   try {
     const url = `${API_BASE}/posts?search=${term}`;
   
